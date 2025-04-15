@@ -1,0 +1,15 @@
+name: 'Diff Extractor'
+description: 'Extracts the diff of the last commit'
+inputs:
+  repo-path:
+    description: 'Path to the Git repository'
+    required: true
+    default: '.'
+outputs:
+  diff-result:
+    description: 'Diff of the last commit'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo-path }}
