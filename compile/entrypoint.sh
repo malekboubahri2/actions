@@ -37,7 +37,7 @@ tar -jxf gcc.tar.bz2 --strip=1
 #  scope to all environments
 export PATH=$PWD/bin:$PATH
 cd -
-ls ./Drivers
+ls ${HAL_DIR}
 # in case arm-none-eabi-gcc compiler is not installed, install it.
 arm-none-eabi-gcc --version
 
