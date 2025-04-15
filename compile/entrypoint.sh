@@ -15,9 +15,9 @@ readonly  GCC_URL="$1"
 readonly  STM32_SERIES="$2"
 readonly  OPTIONS="$3 -mthumb -std=gnu11 -Wall -c"
 
-readonly  CMSIS_DIR="/home/runner/work/STM32CubeL1/STM32CubeL1/Drivers/CMSIS/Device/ST/STM32${STM32_SERIES}xx"
-readonly  HAL_DIR="/home/runner/work/STM32CubeL1/STM32CubeL1/Drivers/STM32${STM32_SERIES}xx_HAL_Driver"
-readonly  INCLUDES="-I/home/runner/work/STM32CubeL1/STM32CubeL1/Drivers/CMSIS/Include -I${CMSIS_DIR}/Include -I${HAL_DIR}/Inc -I./CI/build"
+readonly  CMSIS_DIR="./Drivers/CMSIS/Device/ST/STM32${STM32_SERIES}xx"
+readonly  HAL_DIR="./Drivers/STM32${STM32_SERIES}xx_HAL_Driver"
+readonly  INCLUDES="-I./Drivers/CMSIS/Include -I${CMSIS_DIR}/Include -I${HAL_DIR}/Inc -I./CI/build"
 
 # INSTALL REQUIRED PACKAGES ----------------------------------------------------
 
@@ -37,6 +37,7 @@ tar -jxf gcc.tar.bz2 --strip=1
 #  scope to all environments
 export PATH=$PWD/bin:$PATH
 cd -
+ls
 # in case arm-none-eabi-gcc compiler is not installed, install it.
 arm-none-eabi-gcc --version
 
