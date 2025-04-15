@@ -1,5 +1,5 @@
 #!/bin/sh -l
-ls $1
+ls "$1"
 
 # Ensure the script is executed in a Git repository
 if ! git -C "$1" rev-parse --is-inside-work-tree > /dev/null 2>&1; then
