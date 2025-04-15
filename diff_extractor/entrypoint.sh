@@ -11,7 +11,7 @@ fi
 last_commit_hash=$(git rev-parse HEAD)
 
 # Get the hash of the second-to-last commit
-previous_commit_hash=$(git rev-parse HEAD^)
+previous_commit_hash=$(git rev-parse HEAD^1)
 
 # Display the diff between the last commit and the previous commit
 git diff $previous_commit_hash $last_commit_hash
