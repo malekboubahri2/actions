@@ -13,11 +13,5 @@ last_commit_hash=$(git rev-parse HEAD)
 # Get the hash of the second-to-last commit
 previous_commit_hash=$(git rev-parse HEAD^1)
 
-# Get the diff between the last commit and the previous commit
-diff_result=$(git diff $previous_commit_hash $last_commit_hash)
-
-# Escape the diff result for safe output
-escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
-
 # Set the output
-echo "::set-output name=diff-result::$escaped_diff_result"
+echo "::set-output name=diff-result::$(git diff $previous_commit_hash $last_commit_hash)"
