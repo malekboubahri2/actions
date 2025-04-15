@@ -1,5 +1,6 @@
 #!/bin/bash
-git status
+git config --global --add safe.directory /github/workspace
+
 # Ensure the script is executed in a Git repository
 if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
     echo "Error: This script must be run inside a Git repository."
