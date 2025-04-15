@@ -1,11 +1,4 @@
 #!/bin/sh -l
-ls "$1"
-
-# Ensure the script is executed in a Git repository
-if ! git -C "$1" rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    echo "Error: The specified path is not a Git repository."
-    exit 1
-fi
 
 # Navigate to the repository path
 cd "$1" || exit 1
