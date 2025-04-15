@@ -17,7 +17,7 @@ readonly  INCLUDES="-I./Drivers/CMSIS/Include -I${CMSIS_DIR}/Include -I${HAL_DIR
 
 # Create a dedicated folder to extract the archive into
 mkdir -p ./Utilities/PC_Software/arm-eabi-gcc-toolchain
-cd ./Utilities/PC_Software/arm-eabi-gcc-toolchain || exit
+cd ./Utilities/PC_Software/arm-eabi-gcc-toolchain
 # wget 'get from the Web', -q 'quiet', -O filename 'specify destination filename'
 wget -q -O gcc.tar.bz2 $GCC_URL
 # tar 'tape archiver', -j 'use Bzip compression', -x 'eXtract archive',
@@ -26,7 +26,7 @@ tar -jxf gcc.tar.bz2 --strip=1
 # Save the path to executable of the compiler in PATH variable and broaden its
 #  scope to all environments
 export PATH=$PWD/bin:$PATH
-cd - || exit
+cd -
 # Install the arm-none-eabi-gcc compiler*
 arm-none-eabi-gcc --version
 
@@ -35,7 +35,7 @@ arm-none-eabi-gcc --version
 # Copy file stm32$..xx_hal_conf_template.h and rename it stm32$..xx_hal_conf.h
 #  as needed for the compilation step.
 #  NOTE: ${STM32_SERIES,,} to convert to lower case.
-cp "${HAL_DIR}/Inc/stm32${STM32_SERIES,,}xx_hal_conf_template.h4" "${HAL_DIR}/Inc/stm32${STM32_SERIES,,}xx_hal_conf.h"
+cp "${HAL_DIR}/Inc/stm32${STM32_SERIES,,}xx_hal_conf_template.h" "${HAL_DIR}/Inc/stm32${STM32_SERIES,,}xx_hal_conf.h"
 
 # Each iteration, get current source file name in variable'source' to use it
 #   with'echo' and'gcc' commands.
