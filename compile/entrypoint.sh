@@ -39,10 +39,10 @@ cp "${HAL_DIR}/Inc/stm32${STM32_SERIES,,}xx_hal_conf_template.h" "${HAL_DIR}/Inc
 
 # Each iteration, get current source file name in variable "source" to use it
 #  with "echo" and "gcc" commands.
-for source in "${HAL_DIR}/Src"/*.c
+for source in '${HAL_DIR}/Src'/*.c
 do
     # Log message to the user.
-    echo -e "\tCompiling " $source
+    echo 'Compiling'
     # Use option -c to stop build at compile- or assemble-level.
     arm-none-eabi-gcc $OPTIONS $DEFINES $INCLUDES -c $source
     # In case compilation fails, stop the loop and do not compile remaining files.
