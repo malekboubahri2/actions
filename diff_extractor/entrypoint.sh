@@ -45,14 +45,15 @@ escaped_functions=$(echo "$functions" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed
 escaped_diff_snippets=$(echo "$diff_snippets" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
 # Set the output
-{
-    echo 'files_modified<<EOF'
-    echo "$escaped_files_modified"
-    echo 'EOF'
-    echo 'functions<<EOF'
-    echo "$escaped_functions"
-    echo 'EOF'
-    echo 'diff_snippets<<EOF'
-    echo "$escaped_diff_snippets"
-    echo 'EOF'
-} >> "$GITHUB_OUTPUT"
+{       echo 'diff-result<<EOF'
+        echo $escaped_diff_result
+        echo 'files_modified: '
+        echo "$escaped_files_modified"
+        echo ','
+        echo 'functions: '
+        echo "$escaped_functions"
+        echo ','
+        echo 'diff_snippets: '
+        echo "$escaped_diff_snippets"
+        echo 'EOF'
+      } >> "$GITHUB_OUTPUT"
