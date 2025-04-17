@@ -23,5 +23,4 @@ diff_result=$(cat "$diff_file")
 # Escape the diff result for safe output
 escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
-# Set the output
-echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
+echo "$escaped_diff_result"
