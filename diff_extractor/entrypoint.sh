@@ -18,5 +18,9 @@ diff_result=$(git diff $previous_commit_hash $last_commit_hash | tail -n +3)
 escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
 # Set the output
-echo "{diff-result}={$escaped_diff_result}" 
-echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
+echo "{diff-result}={$escaped_diff_result}"
+{
+        echo 'diff-result<<EOF'
+        echo $escaped_diff_result
+        echo EOF
+      } >> "$GITHUB_ENV"
