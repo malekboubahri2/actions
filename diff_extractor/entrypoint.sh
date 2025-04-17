@@ -24,4 +24,5 @@ diff_result=$(cat "$diff_file")
 escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
 # Set the output
+echo "$escaped_diff_result"
 echo "::set-output name=diff-result::$escaped_diff_result"
