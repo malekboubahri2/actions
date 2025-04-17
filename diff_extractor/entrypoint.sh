@@ -17,10 +17,8 @@ previous_commit_hash=$(git rev-parse HEAD^1)
 diff_file="diff_output.txt"
 git diff $previous_commit_hash $last_commit_hash > "$diff_file"
 
-# Read the file content
-diff_result=$(cat "$diff_file")
-
 # Escape the diff result for safe output
 escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
-echo "$escaped_diff_result"
+# Set the output
+echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
