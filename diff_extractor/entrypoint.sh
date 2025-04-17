@@ -23,4 +23,4 @@ echo "{diff-result}={$escaped_diff_result}"
         echo 'diff-result<<EOF'
         echo $escaped_diff_result
         echo EOF
-      } >> "$GITHUB_ENV"
+      } >> "$GITHUB_OUTPUT"
