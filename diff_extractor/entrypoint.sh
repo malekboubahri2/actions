@@ -17,5 +17,5 @@ previous_commit_hash=$(git rev-parse HEAD^1)
 diff_result=$(git diff $previous_commit_hash $last_commit_hash)
 
 # Set the output
-echo "{diff-result}={$escaped_diff_result}" 
-echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
+echo "{diff-result}={$diff_result}" 
+echo "{diff-result}={$diff_result}" >> $GITHUB_OUTPUT
