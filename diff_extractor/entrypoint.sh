@@ -24,4 +24,4 @@ diff_result=$(cat "$diff_file")
 escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
 # Set the output
-run: echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
+echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
