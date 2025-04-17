@@ -15,7 +15,8 @@ previous_commit_hash=$(git rev-parse HEAD^1)
 
 # Get the diff between the last commit and the previous commit and save it to a file
 diff_result=$(git diff $previous_commit_hash $last_commit_hash)
+escaped_diff_result=$(echo "$diff_result" | sed 's/%/%25/g' | sed 's/\n/%0A/g' | sed 's/\r/%0D/g')
 
 # Set the output
-echo "{diff-result}={$diff_result}" 
-echo "{diff-result}={$diff_result}" >> $GITHUB_OUTPUT
+echo "{diff-result}={$escaped_diff_result}" 
+echo "{diff-result}={$escaped_diff_result}" >> $GITHUB_OUTPUT
